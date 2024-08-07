@@ -146,7 +146,6 @@ This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
 ```
 $ git config --global user.name 
 $ git config --global user.email 
-
 ```
 
 `git`的三种状态
@@ -154,3 +153,8 @@ $ git config --global user.email
 2. 暂存
 3. 提交
 >先提交到本地仓库，再推送到远程仓库
+
+克隆别人的库
+```
+git clone (https)
+```
