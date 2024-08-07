@@ -1,20 +1,23 @@
 # 练习 markdown 语法书写 github 中的 md 文件
 
----
 
 ## 文本样式
 
----
 
 **加粗**
+
 _斜体_
+
 ~~删除~~
+
 这是 <sub> 下标 </sub>
+
 这是 <sup> 上标 </sup>
+
 
 ## 引用文本
 
----
+
 
 > 在这里引用文本
 >
@@ -22,7 +25,7 @@ _斜体_
 
 ## 引用代码
 
----
+
 
 Use `git status` to list all new or modified files that haven't yet been committed.
 
@@ -36,7 +39,7 @@ git commit
 
 ## 引用链接
 
----
+
 
 我最喜欢的网站[哔哩哔哩](https://www.bilibili.com/)
 
@@ -48,19 +51,19 @@ git commit
 
 ## 相对链接
 
----
+
 
 [py 链接](../hello.py)
 
 ## 图像插入
 
----
+
 
 ![这是图片](/saibopengke.avif "赛博朋克")
 
 ## 列表
 
----
+
 
 - George Washington
 
@@ -70,7 +73,7 @@ git commit
 
 ## 列表排序
 
----
+
 
 1. 动漫
 2. 轻小说
@@ -78,7 +81,7 @@ git commit
 
 ## 嵌套列表
 
----
+
 
 1. First list item
    - First nested list item
@@ -86,7 +89,7 @@ git commit
 
 ## 表情
 
----
+
 
 [参考链接](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)
 :rofl:
@@ -94,7 +97,7 @@ git commit
 
 ## 脚注
 
----
+
 
 Here is a simple footnote[^1].
 
@@ -107,7 +110,7 @@ A footnote can also have multiple lines[^2].
 
 ## 忽略 markdown 格式
 
----
+
 
 在 markdown 字符前加入 `\` ,可以指示忽略 markdown 格式
 `Let's rename \*our-new-project\* to \*our-old-project\*.`
