@@ -158,3 +158,11 @@ $ git config --global user.email
 ```
 git clone (https)
 ```
+
+## github 的拉取推送
+```
+1. fork 一份到直接本地的仓库
+2. 进行bug的修改
+3. 提交一份PR(pull requests)
+4. 等待审核
+```
