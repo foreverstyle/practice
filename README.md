@@ -166,3 +166,12 @@ git clone (https)
 3. 提交一份PR(pull requests)
 4. 等待审核
 ```
+
+## 拉取操作
+Git分支拉取指的是从远程仓库（Remote Repository）中将特定分支的代码复制到本地仓库（Local Repository）中的操作。
+
+将远程仓库中指定分支的代码复制到本地仓库中的操作，通过该操作可以实现团队成员之间的代码同步和协作开发。
+
+```
+git fetch
+```
