@@ -113,8 +113,44 @@ A footnote can also have multiple lines[^2].
 
 
 在 markdown 字符前加入 `\` ,可以指示忽略 markdown 格式
+
 `Let's rename \*our-new-project\* to \*our-old-project\*.`
+
 Let's rename \*our-new-project\* to \*our-old-project\*.
 
 
+## 创建mermaid关系图
+
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
+## 编写数学表达式
+
+
+This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
+
+
+
+
 # 练习 vscode 和 github 的链接
+
+## 使用git
+
+在`git`中设置用户名和email
+```
+$ git config --global user.name 
+$ git config --global user.email 
+
+```
+
+`git`的三种状态
+1. 更改
+2. 暂存
+3. 提交
+>先提交到本地仓库，再推送到远程仓库
