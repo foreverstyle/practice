@@ -53,7 +53,7 @@ git commit
 
 
 
-[py ¡¥Ω”](hello_py/hello.py)
+[py ¡¥Ω”](hello_py/hello_world.py)
 
 ## ÕºœÒ≤Â»Î
 
