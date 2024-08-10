@@ -175,3 +175,5 @@ Git分支拉取指的是从远程仓库（Remote Repository）中将特定分支的代码复制到本地仓库
 ```
 git fetch
 ```
+
+# 练习python语言的基本语法
