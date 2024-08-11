@@ -41,3 +41,23 @@ print(a | b)     # a 和 b 的并集
 print(a & b)     # a 和 b 的交集
 
 print(a ^ b)     # a 和 b 中不同时存在的元素
+
+# 集合的内置函数
+
+print(len(sites))  # 集合的元素个数
+
+print(sites.add('Tao_bao'))  # 向集合中添加元素
+
+print(sites)
+
+print(sites.remove('Tao_bao'))  # 从集合中删除元素
+
+print(sites)
+
+print(sites.pop())  # 随机删除集合中的一个元素
+
+print(sites)
+
+print(sites.clear())  # 清空集合
+
+print(sites)
