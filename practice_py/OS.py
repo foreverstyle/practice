@@ -23,6 +23,21 @@ with open("myfile.txt", 'w') as file:   # 打开一个文件。如果文件不存在，它会被创
 #     print(f"An unexpected error occurred: {e}")
 
 
+# 你可以在特定路径下创建文件，只需在 open() 函数中指定完整的文件路径即可。
+# import os
+
+# # 指定文件路径
+# directory = "C:/Users/YourUsername/Documents"
+# filename = "myfile.txt"
+# file_path = os.path.join(directory, filename)
+
+# # 在指定路径下创建文件并写入内容
+# with open(file_path, 'w') as file:
+#     file.write("This is a test file.")
+
+# print(f"File created at: {file_path}")
+# #
+
 
 
 # 1. 文件和目录操作
