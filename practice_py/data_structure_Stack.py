@@ -41,10 +41,9 @@ print(is_empty)  # 输出: False
 size = len(stack)  
 print(size)       # 输出: 2
 
-# self: 代表实例对象，用于访问该实例的属性和方法。
-# self.stack: 表示实例的 stack 属性，存储在对象的内存中。通过 self 访问的属性可以在类的不同方法中共享和操作。
+#self: 代表实例对象，用于访问该实例的属性和方法。
 # 实例属性通常在类的构造函数 __init__ 中定义，并通过 self 进行初始化。这样，每个实例都可以有不同的属性值。
-# 外部可以访问的属性
+# 外部可以访问的属性 self不是关键字，可以用其他名字代替。
 
 # class Person:
 #     def __init__(self, name, age):
@@ -62,7 +61,7 @@ print(size)       # 输出: 2
 
 class Stack:
     def __init__(self):
-        self.stack = [] #self.stack: 看成整体，相当于属于class的数据成员，可以改为其他名字，但最好不要与其他实例属性重名
+        self.stack = [] #self.stack: 属于class的数据成员，可以改为其他名字，但最好不要与其他实例属性重名
 
     def push(self, item):
         self.stack.append(item)
@@ -86,10 +85,14 @@ class Stack:
         return len(self.stack)
 
 # 使用示例
-stack = Stack()
+stack = Stack()         # stack代替self
 stack.push(1)
 stack.push(2)
 stack.push(3)
+
+print(stack)        # 输出: <__main__.Stack object at 0x000001> 地址
+print(stack.__class__)   # 输出: <class '__main__.Stack'> 类名
+print(stack.stack)  # 输出: [1, 2, 3]  通过self.stack直接访问实例属性
 
 print("栈顶元素:", stack.peek())  # 输出: 栈顶元素: 3
 print("栈大小:", stack.size())    # 输出: 栈大小: 3

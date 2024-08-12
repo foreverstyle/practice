@@ -10,7 +10,7 @@ class ClassName:      #class ¹Ø¼ü×ÖÓÃÓÚ¶¨ÒåÒ»¸öĞÂÀà¡£ClassName ÊÇÀàµÄÃû×Ö£¬Í¨³£×
     # ÀàµÄÊôĞÔ
     class_attribute = 'class attribute'
 
-    def __init__(self, instance_attribute):
+    def __init__(self, instance_attribute):     #×óÓÒÁ½±ß¸÷Á½¸öÏÂ»®Ïß
         # ÊµÀıÊôĞÔ
         self.instance_attribute = instance_attribute
 
@@ -42,7 +42,9 @@ ClassName.class_method()  # Êä³ö: This is a class method. Class attribute: class
 # µ÷ÓÃ¾²Ì¬·½·¨
 ClassName.static_method()  # Êä³ö: This is a static method.
 
-
+#self: ´ú±íÊµÀı¶ÔÏó£¬ÓÃÓÚ·ÃÎÊ¸ÃÊµÀıµÄÊôĞÔºÍ·½·¨¡£
+# ÊµÀıÊôĞÔÍ¨³£ÔÚÀàµÄ¹¹Ôìº¯Êı __init__ ÖĞ¶¨Òå£¬²¢Í¨¹ı self ½øĞĞ³õÊ¼»¯¡£ÕâÑù£¬Ã¿¸öÊµÀı¶¼¿ÉÒÔÓĞ²»Í¬µÄÊôĞÔÖµ¡£
+# Íâ²¿¿ÉÒÔ·ÃÎÊµÄÊôĞÔ self²»ÊÇ¹Ø¼ü×Ö£¬¿ÉÒÔÓÃÆäËûÃû×Ö´úÌæ¡£
 
 class Person:
     def __init__(self, name, age):          #Íâ²¿¿ÉÒÔ·ÃÎÊµÄÊôĞÔ ÀàÄÚº¯ÊıÀ¨ºÅÄÚ´øself¾ù±íÊ¾ÊµÀıÊôĞÔ
@@ -79,6 +81,11 @@ class Car:
 car1 = Car("Toyota", "Corolla")
 car2 = Car("Honda", "Civic")
 
+print(car1.make)  # Êä³ö: Toyota    Í¨¹ıself.makeÖ±½Ó·ÃÎÊÊµÀıÊôĞÔ
+print(car1.model)  # Êä³ö: Corolla   Í¨¹ıself.modelÖ±½Ó·ÃÎÊÊµÀıÊôĞÔ
+
+print(Car.wheels)  # Êä³ö: 4         Í¨¹ıÀàÃû·ÃÎÊÀàÊôĞÔ
+
 print(car1.description())  # Êä³ö: Toyota Corolla with 4 wheels
 print(car2.description())  # Êä³ö: Honda Civic with 4 wheels
 
@@ -90,3 +97,146 @@ print(car1.description())  # Êä³ö: Nissan Corolla with 4 wheels
 Car.wheels = 5
 print(car1.description())  # Êä³ö: Nissan Corolla with 5 wheels
 print(car2.description())  # Êä³ö: Honda Civic with 5 wheels
+
+
+# ¼Ì³Ğ
+# ¼Ì³ĞÊÇÃæÏò¶ÔÏó±à³ÌµÄÒ»¸öÖØÒª¸ÅÄî¡£ËüÔÊĞí´´½¨ĞÂµÄÀà£¬´ÓÏÖÓĞÀà¼Ì³ĞÊôĞÔºÍ·½·¨£¬²¢Ìí¼ÓĞÂµÄÊôĞÔºÍ·½·¨¡£
+# ¼Ì³ĞµÄÓï·¨ÈçÏÂ£º
+
+# class ParentClass:
+#     def method1(self):
+#         pass
+
+#     def method2(self):
+#         pass
+
+# class ChildClass(ParentClass):
+#     def method3(self):
+#         pass
+
+
+#!/usr/bin/python3
+# ÀàÊôĞÔÓë·½·¨
+# ÀàµÄË½ÓĞÊôĞÔ
+# __private_attrs£ºÁ½¸öÏÂ»®Ïß¿ªÍ·£¬ÉùÃ÷¸ÃÊôĞÔÎªË½ÓĞ£¬²»ÄÜÔÚÀàµÄÍâ²¿±»Ê¹ÓÃ»òÖ±½Ó·ÃÎÊ¡£ÔÚÀàÄÚ²¿µÄ·½·¨ÖĞÊ¹ÓÃÊ± self.__private_attrs¡£
+
+ 
+#Àà¶¨Òå
+class people:
+    #¶¨Òå»ù±¾ÊôĞÔ
+    name = ''
+    age = 0
+    #¶¨ÒåË½ÓĞÊôĞÔ,Ë½ÓĞÊôĞÔÔÚÀàÍâ²¿ÎŞ·¨Ö±½Ó½øĞĞ·ÃÎÊ
+    __weight = 0
+    #¶¨Òå¹¹Ôì·½·¨
+    def __init__(self,n,a,w):
+        self.name = n
+        self.age = a
+        self.__weight = w
+    def speak(self):
+        print("%s Ëµ: ÎÒ %d Ëê¡£" %(self.name,self.age))
+ 
+#µ¥¼Ì³ĞÊ¾Àı
+class student(people):
+    grade = ''
+    def __init__(self,n,a,w,g):
+        #µ÷ÓÃ¸¸ÀàµÄ¹¹º¯
+        people.__init__(self,n,a,w)
+        self.grade = g
+    #¸²Ğ´¸¸ÀàµÄ·½·¨
+    def speak(self):
+        print("%s Ëµ: ÎÒ %d ËêÁË£¬ÎÒÔÚ¶Á %d Äê¼¶"%(self.name,self.age,self.grade))
+ 
+ 
+ 
+s = student('style',20,60,3)
+s.speak()
+
+# ·½·¨ÖØĞ´
+# ×ÓÀàÖĞÈç¹û¶¨ÒåÁËÓë¸¸ÀàÍ¬ÃûµÄ·½·¨£¬Ôò×ÓÀàµÄ·½·¨¸²¸Ç¸¸ÀàµÄ·½·¨¡£
+# ×ÓÀàÖĞÈç¹ûµ÷ÓÃ¸¸ÀàµÄ·½·¨£¬Ôò×ÜÊÇµ÷ÓÃ×ÓÀàµÄ·½·¨£¬²»»áµ÷ÓÃ¸¸ÀàµÄ·½·¨¡£
+# ×ÓÀàÖĞÈç¹ûĞèÒªµ÷ÓÃ¸¸ÀàµÄ·½·¨£¬¿ÉÒÔÍ¨¹ı super() º¯ÊıÀ´ÊµÏÖ¡£
+
+#!/usr/bin/python3
+ 
+class Parent:        # ¶¨Òå¸¸Àà
+   def myMethod(self):
+      print ('µ÷ÓÃ¸¸Àà·½·¨')
+ 
+class Child(Parent): # ¶¨Òå×ÓÀà
+   def myMethod(self):
+      print ('µ÷ÓÃ×ÓÀà·½·¨')
+ 
+c = Child()          # ×ÓÀàÊµÀı
+c.myMethod()         # ×ÓÀàµ÷ÓÃÖØĞ´·½·¨
+super(Child,c).myMethod() #ÓÃ×ÓÀà¶ÔÏóµ÷ÓÃ¸¸ÀàÒÑ±»¸²¸ÇµÄ·½·¨
+
+
+# ÀàµÄ×¨ÓĞ·½·¨£º
+# __init__ : ¹¹Ôìº¯Êı£¬ÔÚÉú³É¶ÔÏóÊ±µ÷ÓÃ
+# __del__ : Îö¹¹º¯Êı£¬ÊÍ·Å¶ÔÏóÊ±Ê¹ÓÃ
+# __repr__ : ´òÓ¡£¬×ª»» µ±µ÷ÓÃ repr() »òÕßÔÚ½»»¥Ê½½âÊÍÆ÷ÖĞÖ±½ÓÊäÈë¶ÔÏóÃûÊ±×Ô¶¯µ÷ÓÃ
+# __setitem__ : °´ÕÕË÷Òı¸³Öµ    Ê¹ÓÃË÷Òı¸³ÖµÊ±×Ô¶¯µ÷ÓÃ¡£
+# __getitem__: °´ÕÕË÷Òı»ñÈ¡Öµ   Ê¹ÓÃË÷Òı·ÃÎÊÖµÊ±×Ô¶¯µ÷ÓÃ
+
+# __len__: »ñµÃ³¤¶È Ê¹ÓÃ len() Ê±×Ô¶¯µ÷ÓÃ
+
+# __cmp__: ±È½ÏÔËËã Ê¹ÓÃ±È½ÏÔËËã·ûÊ±×Ô¶¯µ÷ÓÃ¡£ÒÑÆúÓÃ£¬½¨ÒéÊ¹ÓÃ __eq__ ºÍ __ne__ ¡£
+# __eq__: µÈÓÚÔËËã
+# __ne__: ²»µÈÓÚÔËËã
+# __lt__: Ğ¡ÓÚÔËËã
+# __le__: Ğ¡ÓÚµÈÓÚÔËËã
+# __gt__: ´óÓÚÔËËã
+# __ge__: ´óÓÚµÈÓÚÔËËã
+
+# __call__: º¯Êıµ÷ÓÃ
+
+
+# __str__: Êä³ö×ª»»Îª×Ö·û´®   Ê¹ÓÃ str() Ê±×Ô¶¯µ÷ÓÃ»òÕß´òÓ¡Êä³öÊ±µ÷ÓÃ¡£
+
+# __add__: ¼ÓÔËËã   ¼Ó·¨ÔËËãÊ±×Ô¶¯µ÷ÓÃ
+# __sub__: ¼õÔËËã    ¼õ·¨ÔËËãÊ±×Ô¶¯µ÷ÓÃ
+# __mul__: ³ËÔËËã    ³Ë·¨ÔËËãÊ±×Ô¶¯µ÷ÓÃ
+# __truediv__: ³ıÔËËã   ³ı·¨ÔËËãÊ±×Ô¶¯µ÷ÓÃ
+# __mod__: ÇóÓàÔËËã   ÇóÓàÔËËãÊ±×Ô¶¯µ÷ÓÃ
+# __pow__: ³Ë·½   ³Ë·½ÔËËãÊ±×Ô¶¯µ÷ÓÃ
+
+
+
+# __del__ : Îö¹¹º¯Êı£¬ÊÍ·Å¶ÔÏóÊ±Ê¹ÓÃ
+class MyClass:
+    def __del__(self):
+        print("Object is being deleted")
+
+obj = MyClass()  
+del obj  # __del__ ±»µ÷ÓÃ
+
+
+# __add__: ¼ÓÔËËã   ¼Ó·¨ÔËËãÊ±×Ô¶¯µ÷ÓÃ
+class MyClass:
+    def __init__(self, value):
+        self.value = value
+
+    def __add__(self, other):
+        return MyClass(self.value + other.value)
+
+obj1 = MyClass(10)
+obj2 = MyClass(20)
+result = obj1 + obj2  # __add__ ±»µ÷ÓÃ
+
+
+# __str__: Êä³ö×ª»»Îª×Ö·û´®
+class Vector:
+   def __init__(self, a, b):
+      self.a = a
+      self.b = b
+ 
+   def __str__(self):
+      return 'Vector (%d, %d)' % (self.a, self.b)
+   
+   def __add__(self,other):
+      return Vector(self.a + other.a, self.b + other.b)
+ 
+v1 = Vector(2,10)       
+v2 = Vector(5,-2)
+print (v1 + v2)         # µ÷ÓÃ __str__ ·½·¨£¬Êä³ö½á¹ûÎª£ºVector (7, 8)
