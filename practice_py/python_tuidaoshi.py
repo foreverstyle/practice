@@ -27,6 +27,10 @@ print(evens)
 evens = [x for x in range(1, 11) if x % 2 == 0] 
 print(evens)
 
+numbers = range(1, 11)
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print(evens)  # [2, 4]
+
 # 5. 嵌套推导式
 # 生成一个包含1到10的平方的列表，每个元素是该元素的平方和它的平方根
 squares_and_roots = [(x**2, x**0.5) for x in range(1, 11)]
