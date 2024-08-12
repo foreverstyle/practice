@@ -167,6 +167,10 @@ git clone (https)
 4. 等待审核
 ```
 
+推送出现错误，解决方法：
+
+把纸飞机关掉，重新推送。
+
 ## 拉取操作
 Git分支拉取指的是从远程仓库（Remote Repository）中将特定分支的代码复制到本地仓库（Local Repository）中的操作。
 
