@@ -61,3 +61,17 @@ print(sites)
 print(sites.clear())  # 清空集合
 
 print(sites)
+
+
+# 创建空集合
+empty_set = set()
+print(empty_set)  # Output: set()
+
+# 从列表或其他可迭代对象创建集合：
+set_from_list = set([1, 2, 2, 3, 4])
+print(set_from_list)  # Output: {1, 2, 3, 4}  (重复的元素被自动去除)
+
+# 从字符串创建集合：
+set_from_str = set("hello")
+print(set_from_str)  # Output: {'h', 'e', 'l', 'o'}
+
