@@ -99,6 +99,37 @@ print(car1.description())  # 输出: Nissan Corolla with 5 wheels
 print(car2.description())  # 输出: Honda Civic with 5 wheels
 
 
+class Dog:
+    species = "Canine"  # 类属性
+
+    def __init__(self, name, age):
+        self.name = name  # 实例属性
+        self.age = age    # 实例属性
+
+dog1 = Dog("Buddy", 5)
+dog2 = Dog("Max", 7)
+
+# 修改 dog1.species
+dog1.species = "Dog"
+
+print(dog1.species)  # 输出: Dog
+print(dog2.species)  # 输出: Canine
+print(Dog.species)   # 输出: Canine
+
+
+#访问类属性: 当你通过 dog1.species 访问 species 时，Python 会首先在 dog1 的实例属性中查找 species，如果找不到，它才会去类属性中查找。
+
+#修改类属性？: 当你通过 dog1.species = "Dog" 来“修改” species 时，实际上 dog1 并没有修改 Dog 类的 species 类属性，而是在 dog1 的实例上创建了一个名为 species 的实例属性
+
+
+#dog1.species 会输出 "Dog"，因为 dog1 实例上有了自己的 species 实例属性。
+# dog2.species 和 Dog.species 仍然会输出 "Canine"，因为 dog2 没有自己的 species 实例属性，它们依然在访问类属性。
+
+# 如果你想真正修改类属性而不是创建实例属性，应该直接通过类来修改：
+
+
+
+
 # 继承
 # 继承是面向对象编程的一个重要概念。它允许创建新的类，从现有类继承属性和方法，并添加新的属性和方法。
 # 继承的语法如下：
