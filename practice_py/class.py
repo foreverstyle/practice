@@ -186,7 +186,9 @@ s.speak()
 # 方法重写
 # 子类中如果定义了与父类同名的方法，则子类的方法覆盖父类的方法。
 # 子类中如果调用父类的方法，则总是调用子类的方法，不会调用父类的方法。
-# 子类中如果需要调用父类的方法，可以通过 super() 函数来实现。
+# 子类中如果需要调用父类的方法，可以通过 
+    #1.类名.方法名
+    #2.super().方法名
 
 #!/usr/bin/python3
  
@@ -271,3 +273,75 @@ class Vector:
 v1 = Vector(2,10)       
 v2 = Vector(5,-2)
 print (v1 + v2)         # 调用 __str__ 方法，输出结果为：Vector (7, 8)
+
+
+
+#多继承
+# 一个类可以从多个父类继承方法和属性。
+
+class A:
+    def feature_a(self):
+        print("Feature A")
+
+class B:
+    def feature_b(self):
+        print("Feature B")
+
+class C(A, B):
+    def feature_c(self):
+        print("Feature C")
+
+# 实例化子类 C
+c = C()
+c.feature_a()  # 调用从 A 类继承的方法
+c.feature_b()  # 调用从 B 类继承的方法
+c.feature_c()  # 调用 C 类自身的方法
+
+
+# 命名冲突问题：靠近原则
+# 子类和父类中存在同名的方法或属性时，会造成命名冲突。
+# Python 采用了“靠近原则”，即，在子类中查找方法或属性，如果没有找到，则继续在父类中查找。
+
+class A:
+    def greeting(self):
+        print("Hello from A")
+
+class B:
+    def greeting(self):
+        print("Hello from B")
+
+class C(A, B):
+    pass
+
+c = C()
+c.greeting()  # 输出: Hello from A
+
+#覆写父类的方法
+
+
+#多态
+# 多态是指允许不同类的对象对同一消息作出不同的响应。在面向对象编程中，多态意味着一个方法或属性可以接收不同类的对象，并作出不同的响应。
+
+# 1. 重写父类的方法
+# 2. 子类实现父类接口
+
+class Animal:
+    def speak(self):        #抽象类 顶层设计，设计一个框架 代码pass
+        pass
+
+class Dog(Animal):
+    def speak(self):
+        return "Woof!"
+
+class Cat(Animal):      
+    def speak(self):
+        return "Meow!"
+
+def make_animal_speak(animal):      #接口
+    print(animal.speak())
+
+dog = Dog()
+cat = Cat()
+
+make_animal_speak(dog)  # 输出: Woof!
+make_animal_speak(cat)  # 输出: Meow!
